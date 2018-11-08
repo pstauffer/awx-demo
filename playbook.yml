@@ -1,5 +1,14 @@
 ---
 - hosts: all
   tasks:
+    - name: debug variable
+      debug:
+        msg: '{{ test_variable }}'
+
     - name: run command
       command: whoami
+      register: output
+
+    - name: debug command
+      debug:
+        msg: '{{ output }}'
